@@ -83,7 +83,6 @@ model = LogisticRegressionWithLBFGS.train(trainingData, numClasses=5)
 print(type(model))
 ```
 
-
 ### Error output with dataset type
 
 ```
@@ -110,6 +109,10 @@ Since the case 2 giving error of input data type, going to change the training d
 from pyspark.mllib.classification import LogisticRegressionWithLBFGS, LogisticRegressionModel, LogisticRegressionWithSGD
 from pyspark.mllib.regression import LabeledPoint
 ```
+
+###  Calling of LogisticRegressionWithLBFGS and changing the type of training data set
+
+```
 	print(type(trainingData))
 	print(trainingData.take(2))
 
@@ -122,6 +125,7 @@ from pyspark.mllib.regression import LabeledPoint
 	model = LogisticRegressionWithLBFGS.train(trainingData, numClasses=5)
 	print(type(model))
 ```
+
 
 ### Error output with dataset type
 ```
@@ -142,10 +146,5 @@ Traceback (most recent call last):
 AttributeError: 'list' object has no attribute 'features'
 root@sparkrun-m:/home/LR/LogisticRegression#
 ```
-
-
-
-
-
 
 
