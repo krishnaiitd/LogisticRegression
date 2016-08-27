@@ -14,10 +14,11 @@ conf = SparkConf()
 sc = SparkContext(conf=conf)
 sqlContext = SQLContext(sc)
 
-# Import the MLLib library need for classification
 from pyspark.sql import DataFrame
+# Import the ML library need for text hashing
 from pyspark.ml.feature import HashingTF
 
+# Import the MLLIB library for classification
 from pyspark.mllib.classification import LogisticRegressionWithLBFGS, LogisticRegressionModel, LogisticRegressionWithSGD
 #from pyspark.mllib.regression import LabeledPoint
 

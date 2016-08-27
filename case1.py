@@ -14,11 +14,12 @@ conf = SparkConf()
 sc = SparkContext(conf=conf)
 sqlContext = SQLContext(sc)
 
-# Import the MLLib library need for classification
+# Import DataFrame
 from pyspark.sql import DataFrame
-from pyspark.ml import Pipeline
-from pyspark.ml.feature import HashingTF
 
+# Import the ML library need for classification and text hashing
+from pyspark.ml.feature import HashingTF
+from pyspark.ml import Pipeline
 from pyspark.ml.classification import LogisticRegression
 
 # Import the Word tokenize 

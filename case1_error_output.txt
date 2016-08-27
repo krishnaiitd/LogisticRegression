@@ -11,19 +11,21 @@ Number of records by rating:
 |    4.0|    3|
 |    5.0|    2|
 +-------+-----+
-
 None
 Clean the review text dataset
 Model 1
 Number of dataset in training: 6                                                
 Number of dataset in testing: 4
 <class 'pyspark.sql.dataframe.DataFrame'>
-[Row(label=2.0, features=SparseVector(2000, {51: 1.0, 160: 1.0, 341: 1.0, 417: 1.0, 561: 1.0, 656: 1.0, 863: 1.0, 939: 1.0, 1021: 1.0, 1324: 1.0, 1433: 1.0, 1573: 1.0, 1604: 1.0, 1720: 1.0})), Row(label=2.0, features=SparseVector(2000, {103: 1.0, 801: 1.0, 1021: 1.0, 1170: 1.0, 1222: 1.0, 1508: 1.0, 1778: 1.0, 1858: 2.0}))]
-16/08/27 06:40:05 ERROR org.apache.spark.ml.classification.LogisticRegression: Currently, LogisticRegression with ElasticNet in ML package only supports binary classification. Found 6 in the input dataset.
+[Row(label=2.0, features=SparseVector(2000, {51: 1.0, 160: 1.0, 341: 1.0, 417: 1.0, 561: 1.0, 656: 1.0, 863: 1.0, 939: 1.0, 1021: 1.0, 13
+24: 1.0, 1433: 1.0, 1573: 1.0, 1604: 1.0, 1720: 1.0})), Row(label=2.0, features=SparseVector(2000, {103: 1.0, 801: 1.0, 1021: 1.0, 1170: 
+1.0, 1222: 1.0, 1508: 1.0, 1778: 1.0, 1858: 2.0}))]
+16/08/27 07:31:12 ERROR org.apache.spark.ml.classification.LogisticRegression: Currently, LogisticRegression with ElasticNet in ML packag
+e only supports binary classification. Found 6 in the input dataset.
 Traceback (most recent call last):
-  File "/home/LR/LogisticRegression/case1.py", line 109, in <module>
+  File "/home/LR/LogisticRegression/case1.py", line 110, in <module>
     accuracy = TrainLRCModel(trainData, testData)
-  File "/home/LR/LogisticRegression/case1.py", line 89, in TrainLRCModel
+  File "/home/LR/LogisticRegression/case1.py", line 90, in TrainLRCModel
     model = pipeline.fit(trainingData)
   File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/ml/pipeline.py", line 69, in fit
   File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/ml/pipeline.py", line 213, in _fit
@@ -34,11 +36,11 @@ Traceback (most recent call last):
   File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/sql/utils.py", line 45, in deco
   File "/usr/lib/spark/python/lib/py4j-0.9-src.zip/py4j/protocol.py", line 308, in get_return_value
 py4j.protocol.Py4JJavaError: An error occurred while calling o100.fit.
-: org.apache.spark.SparkException: Currently, LogisticRegression with ElasticNet in ML package only supports binary classification. Found 6 in the input dataset.
+: org.apache.spark.SparkException: Currently, LogisticRegression with ElasticNet in ML package only supports binary classification. Found
+ 6 in the input dataset.
         at org.apache.spark.ml.classification.LogisticRegression.train(LogisticRegression.scala:290)
         at org.apache.spark.ml.classification.LogisticRegression.train(LogisticRegression.scala:159)
         at org.apache.spark.ml.Predictor.fit(Predictor.scala:90)
-        at org.apache.spark.ml.Predictor.fit(Predictor.scala:71)
         at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
         at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
         at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -50,3 +52,4 @@ py4j.protocol.Py4JJavaError: An error occurred while calling o100.fit.
         at py4j.commands.CallCommand.execute(CallCommand.java:79)
         at py4j.GatewayConnection.run(GatewayConnection.java:209)
         at java.lang.Thread.run(Thread.java:745)
+root@sparkrun-m:/home/LR/LogisticRegression#
