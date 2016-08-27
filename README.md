@@ -2,7 +2,7 @@
 
 ## Case 1:
 
-I simple used the Logistic regression pipeline.
+I simply used the Logistic regression pipeline.
 
 ### Library used
 
