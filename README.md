@@ -66,9 +66,43 @@ at java.lang.Thread.run(Thread.java:745)
 
 
 
+## Case 2:
+
+I simply use `LogisticRegressionWithLBFGS` as follows:
+
+### Library used
+```
+from pyspark.mllib.classification import LogisticRegressionWithLBFGS, LogisticRegressionModel, LogisticRegressionWithSGD
+```
+
+### Calling of LogisticRegressionWithLBFGS, I am also printing the dataset type
+
+```
+print(type(trainingData))
+print(trainingData.take(2))
+model = LogisticRegressionWithLBFGS.train(trainingData, numClasses=5)
+print(type(model))
+```
 
 
 
+### Error output with dataset type
+
+```
+<class 'pyspark.sql.dataframe.DataFrame'>
+[Row(label=2.0, features=SparseVector(2000, {51: 1.0, 160: 1.0, 341: 1.0, 417: 1.0, 561: 1.0, 656: 1.0, 863: 1.0, 939: 1.0, 1021: 1.0, 13
+24: 1.0, 1433: 1.0, 1573: 1.0, 1604: 1.0, 1720: 1.0})), Row(label=2.0, features=SparseVector(2000, {103: 1.0, 801: 1.0, 1021: 1.0, 1170: 
+1.0, 1222: 1.0, 1508: 1.0, 1778: 1.0, 1858: 2.0}))]
+Traceback (most recent call last):
+  File "/home/LR/LogisticRegression/case2.py", line 109, in <module>
+    accuracy = TrainLRCModel(trainData, testData)
+  File "/home/LR/LogisticRegression/case2.py", line 88, in TrainLRCModel
+    model = LogisticRegressionWithLBFGS.train(trainingData, numClasses=5)
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/mllib/classification.py", line 382, in train
+  File "/usr/lib/spark/python/lib/pyspark.zip/pyspark/mllib/regression.py", line 206, in _regression_train_wrapper
+TypeError: data should be an RDD of LabeledPoint, but got <class 'pyspark.sql.types.Row'>
+root@sparkrun-m:/home/LR/LogisticRegression#
+```
 
 
 
